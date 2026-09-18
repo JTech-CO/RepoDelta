@@ -1,6 +1,8 @@
 import { readdir, readFile } from 'node:fs/promises';
 import { spawnSync } from 'node:child_process';
 import { resolve, join } from 'node:path';
+import { verifyIcons } from './verify-icons.mjs';
+await verifyIcons();
 const root = resolve(import.meta.dirname, '..');
 export async function walk(dir) {
   const out = [];

@@ -3,6 +3,7 @@ Requires Python + Playwright, with BROWSER_PATH pointing to Chromium/Chrome.
 Run: python tests/browser_smoke.py
 """
 import os, re, json
+from urllib.parse import urlsplit, unquote
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 ROOT = Path(__file__).resolve().parents[1]
@@ -10,6 +11,19 @@ OUT = ROOT / 'qa-results'; OUT.mkdir(exist_ok=True)
 SHOTS = ROOT / 'docs' / 'screenshots'; SHOTS.mkdir(parents=True, exist_ok=True)
 A, B, C = 'a'*40, 'b'*40, 'c'*40
 checks=[]; errors=[]
+def fulfill_asset(route):
+    # Actual packaged bytes, supplied locally because this harness is offline.
+    name = unquote(urlsplit(route.request.url).path.removeprefix('/dist/'))
+    path = (ROOT/'dist'/name).resolve()
+    if not path.is_relative_to((ROOT/'dist').resolve()) or not path.is_file():
+        route.fulfill(status=404, body='Missing fixture asset'); return
+    mime = {'.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'}.get(path.suffix,'application/octet-stream')
+    route.fulfill(status=200,content_type=mime,body=path.read_bytes(),headers={'Access-Control-Allow-Origin':'*'})
+def logo_ok(page, selector, size, name):
+    logo=page.locator(selector);logo.wait_for()
+    logo.evaluate('(e)=>e.decode()')
+    ok(logo.evaluate('(e)=>e.complete && e.naturalWidth===412 && e.naturalHeight===412'),name+' decodes the new SVG')
+    ok(logo.evaluate('(e)=>e.getBoundingClientRect().width')==size,name+' has the correct displayed size')
 def ok(condition, name):
     if not condition: raise AssertionError(name)
     checks.append(name); print('PASS:',name,flush=True)
@@ -33,9 +47,11 @@ with sync_playwright() as p:
     executable=os.environ.get('BROWSER_PATH','/usr/bin/chromium')
     browser=p.chromium.launch(executable_path=executable,headless=True,args=['--no-sandbox'])
     context=browser.new_context(viewport={'width':1365,'height':900})
+    context.route('http://127.0.0.1:5198/dist/**',fulfill_asset)
     page=context.new_page();boot(page)
     toolbar=page.locator('#repodelta-button-host button');toolbar.wait_for()
     ok(page.locator('#repodelta-button-host').count()==1,'One header badge is injected')
+    logo_ok(page,'.rd-badge-logo',16,'Header badge logo')
     ok(page.evaluate('QA.calls.length')==0,'Untracked visit makes zero API calls')
     toolbar.click();page.get_by_role('heading',name='Your next visit starts here.').wait_for()
     ok(page.evaluate('async()=>Object.keys(await QA.store.checkpoints()).length')==0,'Opening panel does not create a checkpoint')
@@ -44,6 +60,8 @@ with sync_playwright() as p:
     refresh(page,head=B)
     page.get_by_role('heading',name='3 commits since your checkpoint').wait_for()
     ok(page.locator('.rd-file').count()==7,'Seven file changes render with status and line counts')
+    logo_ok(page,'.rd-logo',28,'Panel logo')
+    logo_ok(page,'.rd-badge-logo',16,'Header badge after a state update')
     page.screenshot(path=str(SHOTS/'01-files-en.png'))
     search=page.get_by_role('searchbox',name='Filter file paths');search.fill('src/types.js')
     ok(page.locator('.rd-file').count()==1,'Path filter matches previous filename of a rename')
@@ -108,6 +126,7 @@ with sync_playwright() as p:
     ok(page.locator('#repodelta-button-host').count()==1,'Missing header falls back to a single floating control')
     options=context.new_page();boot(options,'options')
     options.get_by_role('heading',name='Your GitHub reading checkpoints.').wait_for()
+    logo_ok(options,'.brand-logo',32,'Settings logo')
     options.get_by_label('GitHub personal access token',exact=True).fill('github_pat_'+'x'*30)
     options.get_by_role('button',name='Use for this session',exact=True).click()
     options.get_by_text('Session token saved. Cached API data was cleared.').wait_for()
@@ -125,6 +144,9 @@ with sync_playwright() as p:
     ok('github_pat_' not in backup and 'revision' not in backup,'UI export path excludes token and internal revision data')
     options.get_by_role('button',name='모든 기준점 삭제',exact=True).click();options.get_by_role('button',name='취소',exact=True).click()
     ok(options.evaluate('async()=>Object.keys(await QA.store.checkpoints()).length')==1,'Canceling delete-all leaves saved checkpoints intact')
+    popup=context.new_page();popup.set_viewport_size({'width':350,'height':390});boot(popup,'popup')
+    logo_ok(popup,'.brand-logo',32,'Popup logo')
+    popup.locator('body').screenshot(path=str(SHOTS/'05-popup-en.png'))
     ok(not errors,'No uncaught JavaScript errors during offline DOM regression')
     report={'mode':'Offline Chromium DOM harness; simulated Chrome APIs, GitHub responses, persistence and navigation','browser':browser.version,'passed':len(checks),'checks':checks,'pageErrors':errors,'notVerified':['Native MV3 installation and service-worker lifecycle','Live GitHub layout and API authentication','Native extension session persistence across browser restart','Actual Chrome Web Store review','Real browser download completion']}
     (OUT/'browser-results.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))

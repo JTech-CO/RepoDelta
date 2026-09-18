@@ -1,0 +1,3 @@
+# Optional artwork regeneration only. No extension runtime dependency.
+CairoSVG==2.8.2
+Pillow==12.3.0

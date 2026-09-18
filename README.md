@@ -1,18 +1,23 @@
 <div align="center">
-  <img src="public/icons/logo.svg" width="72" height="72" alt="RepoDelta icon">
+  <img src="public/icons/logo.svg?v=1.0.4" width="72" height="72" alt="RepoDelta icon">
   <h1>RepoDelta</h1>
   <p><strong>Pick up where you left off.</strong></p>
   <p>See what changed on a GitHub repository's default branch since your last explicit checkpoint.</p>
   <p><strong>English</strong> · <a href="README-KR.md">한국어</a></p>
 </div>
 
-RepoDelta 1.0.3 is a Chrome Manifest V3 extension with a small GitHub header badge, an in-page change panel, and a local checkpoint manager. It does not mark anything reviewed just because you opened a page.
+## Branding update in 1.0.4
 
-> Delivery status: implementation and automated tests are included. The execution environment blocks unpacked extension installation and browser navigation. Browser screenshots/tests therefore use the actual application source in an offline Chromium harness with simulated GitHub and Chrome APIs. Native MV3 installation, live GitHub integration, and store approval are not certified. See [QA report](docs/QA.md).
+All active icon surfaces now use the publisher's new logo: installation PNGs, the GitHub badge/panel, settings/popup, help/privacy headers and favicons. SVG geometry is unchanged. The API/token/checkpoint implementation is unchanged. [Icon pipeline](docs/BRANDING.md) · [Current verification](docs/QA.md).
+
+
+RepoDelta 1.0.4 is a Chrome Manifest V3 extension with a small GitHub header badge, an in-page change panel, and a local checkpoint manager. It does not mark anything reviewed just because you opened a page.
+
+> Delivery status: implementation and automated tests are included. Native unpacked extension installation is not certified in this environment. Browser screenshots/tests use the actual application source in an offline Chromium harness with simulated GitHub and Chrome APIs. Native MV3 installation, live GitHub integration, and store approval are not certified. See [QA report](docs/QA.md).
 
 ## Use it
 
-1. Extract `RepoDelta-v1.0.3-chrome.zip` to a permanent local folder. Its root contains `manifest.json`.
+1. Extract `RepoDelta-v1.0.4-chrome.zip` to a permanent local folder. Its root contains `manifest.json`.
 2. Open `chrome://extensions`, enable **Developer mode**, select **Load unpacked**, and choose that folder. When using the source package, choose its **dist/** directory instead.
 3. Reload an open GitHub repository. Select **Delta**, then **Start tracking here** to save the displayed default-branch SHA.
 4. On a later visit, check the new commits and changed files. Choose **Mark this revision reviewed** and confirm when you are done.
@@ -38,7 +43,7 @@ No Node.js installation is needed to load the prebuilt extension. No GitHub sign
 
 ## Scope and important limits
 
-**Only the default branch is tracked in 1.0.3**, including when you browse another branch. A checkpoint covers the entire revision; filters do not create per-file read states. There is no pre-install browsing-history recovery, scheduled polling, desktop notification, release/issue analysis, or full inline patch viewer. Source changes open on GitHub.
+**Only the default branch is tracked in 1.0.4**, including when you browse another branch. A checkpoint covers the entire revision; filters do not create per-file read states. There is no pre-install browsing-history recovery, scheduled polling, desktop notification, release/issue analysis, or full inline patch viewer. Source changes open on GitHub.
 
 A five-minute API cache reduces repeated requests; **Refresh** revalidates immediately unless GitHub has imposed a cooldown. API quotas are shared with other clients using the same IP/token. A repository rename may require reopening the canonical URL and registering a checkpoint at the new path. Tracking keys are case-insensitive `owner/repo`, with a repository ID guard against replacement.
 
@@ -55,7 +60,7 @@ npm run build
 npm run package
 ```
 
-`npm run package` validates JavaScript/JSON, runs the Node tests, builds `dist/`, and writes `releases/RepoDelta-v1.0.3-chrome.zip`. The Chrome ZIP has `manifest.json` at its root; it excludes QA fixtures, tests, and source-only documentation. Build scripts work without Unix shell utilities.
+`npm run package` validates JavaScript/JSON, runs the Node tests, builds `dist/`, and writes `releases/RepoDelta-v1.0.4-chrome.zip`. The Chrome ZIP has `manifest.json` at its root; it excludes QA fixtures, tests, and source-only documentation. Build scripts work without Unix shell utilities.
 
 ```text
 src/

@@ -1,18 +1,23 @@
 <div align="center">
-  <img src="public/icons/logo.svg" width="72" height="72" alt="RepoDelta 아이콘">
+  <img src="public/icons/logo.svg?v=1.0.4" width="72" height="72" alt="RepoDelta 아이콘">
   <h1>RepoDelta</h1>
   <p><strong>지난번에 읽던 곳부터.</strong></p>
   <p>마지막으로 직접 확인한 시점 이후, GitHub 기본 브랜치의 변경점을 확인합니다.</p>
   <p><a href="README.md">English</a> · <strong>한국어</strong></p>
 </div>
 
-RepoDelta 1.0.3은 GitHub 상단 배지, 페이지 내 변경점 패널, 로컬 확인 기준점 관리 화면으로 구성한 Chrome Manifest V3 확장프로그램입니다. 페이지를 열었다는 이유만으로 변경점을 읽은 것으로 처리하지 않습니다.
+## 1.0.4 아이콘 일괄 적용
+
+설치용 PNG, GitHub 배지·패널, 설정·팝업, 사용 안내·개인정보 처리방침의 헤더·파비콘을 새 로고로 통일했습니다. SVG 도형과 API·토큰·기준점 로직은 유지했습니다. [아이콘 생성·검사](docs/BRANDING-KR.md) · [현재 검증](docs/QA-KR.md) · [업데이트 방법](docs/UPDATE-KR.md).
+
+
+RepoDelta 1.0.4은 GitHub 상단 배지, 페이지 내 변경점 패널, 로컬 확인 기준점 관리 화면으로 구성한 Chrome Manifest V3 확장프로그램입니다. 페이지를 열었다는 이유만으로 변경점을 읽은 것으로 처리하지 않습니다.
 
 > 검증 범위: 구현과 자동화 테스트를 포함했습니다. 작업 환경의 관리 정책이 확장 직접 설치와 브라우저 URL 탐색을 차단하므로, 브라우저 검증과 화면 캡처는 실제 앱 소스를 사용하는 오프라인 Chromium 하네스에서 GitHub 및 Chrome API를 모의 처리했습니다. 네이티브 MV3 설치, 실제 GitHub 연동, 스토어 승인은 검증하지 않았습니다. [QA 보고서](docs/QA-KR.md)를 확인하세요.
 
 ## 바로 설치하기
 
-1. `RepoDelta-v1.0.3-chrome.zip`을 계속 보관할 로컬 폴더에 압축 해제합니다. 해당 폴더 바로 아래에 `manifest.json`이 있습니다.
+1. `RepoDelta-v1.0.4-chrome.zip`을 계속 보관할 로컬 폴더에 압축 해제합니다. 해당 폴더 바로 아래에 `manifest.json`이 있습니다.
 2. `chrome://extensions`에서 **개발자 모드**를 켜고 **압축해제된 확장 프로그램을 로드합니다**를 선택합니다. 방금 압축 해제한 폴더를 지정합니다. 소스 패키지로 설치한다면 그 안의 **dist/** 폴더를 선택합니다.
 3. 열려 있던 GitHub 저장소 페이지를 새로고침합니다. **Delta → 이 버전부터 추적**으로 화면에 표시된 기본 브랜치의 SHA를 저장합니다.
 4. 나중에 다시 방문해 커밋과 변경 파일을 검토하고, **이 버전까지 확인 완료**를 누른 뒤 확인합니다.
@@ -36,7 +41,7 @@ RepoDelta 1.0.3은 GitHub 상단 배지, 페이지 내 변경점 패널, 로컬 
 
 *실제 RepoDelta UI를 캡처했으며 저장소와 API 응답은 모의 데이터입니다. 실제 GitHub 통합 검증 화면은 아닙니다.*
 
-## 1.0.3의 범위와 한계
+## 1.0.4의 범위와 한계
 
 다른 브랜치를 보고 있더라도 **기본 브랜치만 추적**합니다. 기준점은 버전 전체에 적용되며, 필터는 파일별 읽음 상태를 만들지 않습니다. 설치 이전의 방문 이력 복원, 정기 폴링, 알림, 릴리스·이슈 분석, 전체 인라인 diff 뷰어는 없습니다. 상세 코드 변경은 GitHub에서 확인합니다.
 
@@ -55,7 +60,7 @@ npm run build
 npm run package
 ```
 
-`npm run package`는 JavaScript·JSON 검사, Node 테스트, `dist/` 빌드 후 `releases/RepoDelta-v1.0.3-chrome.zip`을 만듭니다. 확장 ZIP 최상위에 `manifest.json`이 있으며 QA 데이터, 테스트, 소스용 문서는 제외됩니다. 빌드 스크립트는 Unix 전용 명령에 의존하지 않습니다.
+`npm run package`는 JavaScript·JSON 검사, Node 테스트, `dist/` 빌드 후 `releases/RepoDelta-v1.0.4-chrome.zip`을 만듭니다. 확장 ZIP 최상위에 `manifest.json`이 있으며 QA 데이터, 테스트, 소스용 문서는 제외됩니다. 빌드 스크립트는 Unix 전용 명령에 의존하지 않습니다.
 
 ```text
 src/

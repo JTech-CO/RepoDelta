@@ -1,5 +1,15 @@
 # 변경 내역
 
+## 1.0.4
+
+- Chrome 설치·도구 모음 PNG, GitHub 배지·패널, 설정·팝업, 문서 헤더·파비콘을 새 로고로 통일했습니다.
+- 업로드한 SVG의 도형과 색상은 유지하고 확대·축소용 viewBox만 추가했습니다. 제공된 원본 PNG도 그대로 보존했습니다.
+- 글꼴의 Δ 문자를 공통 로고 이미지로 교체했습니다. `icons/logo.svg` 한 파일만 `https://github.com/*`에 공개합니다.
+- 16/32/48/128 PNG·ICO를 재생성했습니다. 선택적 오프라인 생성기와 해시·크기 검사를 추가하여 SVG만 바뀐 채 이전 PNG가 배포되는 것을 막습니다.
+- 버전이 포함된 파비콘 주소, 새 README 스크린샷, `dist`와 Chrome ZIP을 반영했습니다.
+- GitHub API 전송·토큰 저장·확인 기준점 로직과 기존 호스트/API 권한은 변경하지 않았습니다.
+- 검증: Node 107개, 오프라인 앱 DOM 46개, 오프라인 문서·이미지 50개 통과. 실제 설치된 확장 UI와 배포된 Pages 검증을 의미하지 않습니다.
+
 ## 1.0.3
 
 - 지속되던 Chrome 서비스 워커 전송 오류의 원인을 수정했습니다. 네이티브 `WorkerGlobalScope.fetch`를 `GitHubClient` 속성에 저장한 뒤 `this.fetcher(...)`로 호출하면서 수신 객체가 바뀌었고, 실제 HTTP 요청 전에 `TypeError: Illegal invocation`이 발생했습니다.

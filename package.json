@@ -1,6 +1,6 @@
 {
   "name": "repodelta",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "private": true,
   "description": "See what changed since your last explicit GitHub checkpoint.",
   "license": "MIT",
@@ -13,6 +13,7 @@
     "test": "node scripts/test.mjs",
     "check": "node scripts/check.mjs",
     "package": "npm run check && npm test && npm run build && node scripts/package.mjs",
-    "serve:qa": "node scripts/serve-qa.mjs"
+    "serve:qa": "node scripts/serve-qa.mjs",
+    "icons:check": "node scripts/verify-icons.mjs"
   }
 }

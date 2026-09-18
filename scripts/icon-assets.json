@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "source": "public/icons/logo.svg",
+  "sourceSha256": "b13c43c61d8fff2b2a9e18fef80282ecd10a338ac4efa76dd8373c8320b2ac55",
+  "sizes": [
+    16,
+    32,
+    48,
+    128
+  ],
+  "files": {
+    "public/icons/16.png": "ec41bd9c2503cec4d110035b920e533dba5816488d40511771fa479588365b5e",
+    "public/icons/16.ico": "db73065b521222f2dae195dc9d8cf93683b7668dd2791c114c070bf6b8864665",
+    "public/icons/32.png": "57d5f4f74081b450efc5dd1abdfdf10b6de41fc07dd04982fbf0ed9681576abe",
+    "public/icons/32.ico": "f6ca7604fbe83ff630e2723fafa00ac3f77ff3a0159655cf497d3c3d31191986",
+    "public/icons/48.png": "4aa95abd89c20090d5b8a926385ce5def3fe48f29381d02fe627849802e03e32",
+    "public/icons/48.ico": "193022d625c16b876915714ba80e2ea4b530786d1012fa7d606f709a7c54158e",
+    "public/icons/128.png": "eb7ca7d80af7f03fc48c65c918661520c9c5c298e35e18155fbb6d58ba55bcc6",
+    "public/icons/128.ico": "468c4d788bc1f1dd6480e5da81fb7f71caec670862a0c372aff50c07922b56d4"
+  }
+}

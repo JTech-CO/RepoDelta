@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.4
+
+- Unified Chrome installation/toolbar PNGs, GitHub badge and panel, settings, popup, document headers and favicons with the publisher's new logo.
+- Retained the uploaded SVG geometry and color; added only an explicit viewBox for consistent scaling. Kept the supplied raster original unchanged.
+- Replaced font-based delta branding with one shared packaged SVG image helper. Only `icons/logo.svg` is web-accessible, and only to `https://github.com/*`.
+- Regenerated 16/32/48/128 PNG and ICO assets. Added an optional offline generator and a hash/dimension guard so a changed SVG cannot ship with stale raster files.
+- Added versioned favicon URLs, refreshed README screenshots and rebuilt `dist` and the Chrome ZIP.
+- No changes to GitHub API transport, token storage, checkpoint logic or existing host/API permissions.
+- Validation: 107 Node tests, 46 offline app DOM checks and 50 offline document/asset checks passed. Native installed-extension UI and deployed Pages are not certified by these tests.
+
 ## 1.0.3
 
 - Fix the persistent Chrome service-worker transport failure: the native `WorkerGlobalScope.fetch` function was stored on `GitHubClient` and invoked as `this.fetcher(...)`, changing its receiver and causing `TypeError: Illegal invocation` before any HTTP request.

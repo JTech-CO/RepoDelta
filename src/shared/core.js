@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const R = globalThis.RepoDelta ||= {};
-  R.VERSION = '1.0.3';
+  R.VERSION = '1.0.4';
   R.API_VERSION = '2022-11-28';
   R.LIMITS = Object.freeze({ checkpoints: 1000, commits: 500, pageSize: 100, files: 300, cacheMs: 300000, snapshotMs: 1800000, importBytes: 1048576 });
   R.DEFAULT_SETTINGS = Object.freeze({ language: 'en', autoCheck: true });
