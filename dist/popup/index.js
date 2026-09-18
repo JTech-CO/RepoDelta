@@ -13,6 +13,6 @@
         if (!result?.opened) { note.textContent = t('noCurrentRepo'); return; } window.close();
       } catch { note.textContent = t('reloadPage'); }
     };
-    app.append(e('header', { class: 'topbar' }, [e('div', { class: 'brand' }, [e('span', { class: 'symbol', 'aria-hidden': 'true' }, ['Δ']), 'RepoDelta']), e('span', { class: 'version' }, [`v${R.VERSION}`])]), e('p', { class: 'intro' }, [t('popupIntro')]), e('div', { class: 'repo-box' }, ref ? [e('strong', {}, [`${ref.owner}/${ref.repo}`]), e('p', {}, [cp ? `${cp.branch} · ${R.shortSha(cp.sha)} · ${t('tracked')}` : t('notTracked')])] : [t('noCurrentRepo')]), e('div', { class: 'stack' }, [ref ? R.button(t('openPanel'), open, 'primary') : null, R.button(t('openOptions'), () => chrome.runtime.openOptionsPage())]), note, e('footer', {}, [t('localOnly')]));
+    app.append(e('header', { class: 'topbar' }, [e('div', { class: 'brand' }, [R.logo('brand-logo', 32), 'RepoDelta']), e('span', { class: 'version' }, [`v${R.VERSION}`])]), e('p', { class: 'intro' }, [t('popupIntro')]), e('div', { class: 'repo-box' }, ref ? [e('strong', {}, [`${ref.owner}/${ref.repo}`]), e('p', {}, [cp ? `${cp.branch} · ${R.shortSha(cp.sha)} · ${t('tracked')}` : t('notTracked')])] : [t('noCurrentRepo')]), e('div', { class: 'stack' }, [ref ? R.button(t('openPanel'), open, 'primary') : null, R.button(t('openOptions'), () => chrome.runtime.openOptionsPage())]), note, e('footer', {}, [t('localOnly')]));
   } catch (error) { app.append(e('p', {}, [R.errorText(error, 'en')])); }
 })();

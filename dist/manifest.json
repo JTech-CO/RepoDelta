@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "RepoDelta",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "__MSG_extensionDescription__",
   "default_locale": "en",
   "minimum_chrome_version": "114",
@@ -49,6 +49,16 @@
         "content/index.js"
       ],
       "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "icons/logo.svg"
+      ],
+      "matches": [
+        "https://github.com/*"
+      ]
     }
   ]
 }

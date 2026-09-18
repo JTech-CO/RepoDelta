@@ -17,6 +17,12 @@
     for (const child of Array.isArray(children) ? children : [children]) if (child !== null && child !== undefined) e.append(child instanceof Node ? child : document.createTextNode(String(child)));
     return e;
   };
+  // Decorative brand image; adjacent RepoDelta/Delta text is the accessible label.
+  // Only this static SVG is web-accessible to github.com. No API data is exposed.
+  R.logo = (className = 'rd-logo', size = 28) => R.el('img', {
+    class: className, src: chrome.runtime.getURL('icons/logo.svg'),
+    width: size, height: size, alt: '', 'aria-hidden': 'true', draggable: 'false'
+  });
   R.button = (text, handler, classes = '', attrs = {}) => R.el('button', { type: 'button', class: `rd-button ${classes}`, onClick: handler, ...attrs }, [text]);
   R.link = (text, href, attrs = {}) => R.el('a', { href, target: '_blank', rel: 'noopener noreferrer', ...attrs }, [text]);
   R.rpc = async message => {

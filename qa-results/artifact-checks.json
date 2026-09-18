@@ -1,18 +1,67 @@
 {
-  "artifact": "RepoDelta-v1.0.2-chrome.zip",
-  "checksPassed": 10,
+  "version": "1.0.4",
+  "baseCommit": "5ead41a0f8a3f5bebb4ed98aefb1b002dd1b6b88",
+  "passed": 34,
   "checks": [
-    "Manifest V3 version 1.0.2",
-    "Only storage permission declared",
-    "Only GitHub website and API host permissions",
-    "No custom extension CSP override; MV3 default CSP applies",
-    "Installation ZIP exactly matches dist",
-    "Installation bytes match every dist file",
-    "No QA fixtures, tests, docs, or build scripts in installation package",
-    "manifest.json is at installation ZIP root",
-    "GitHub API diagnostics and compatibility transport are packaged",
-    "Installation ZIP CRC/integrity"
+    "Unchanged background logic: store.js",
+    "Unchanged background logic: github.js",
+    "Unchanged background logic: service.js",
+    "Unchanged background logic: index.js",
+    "Core logic unchanged except version",
+    "Translations and API error messages unchanged",
+    "Source SVG rendering is pixel-identical after adding viewBox",
+    "Uploaded original.png is byte-identical",
+    "Version 1.0.4: public/manifest.json",
+    "Version 1.0.4: package.json",
+    "Version 1.0.4: package-lock.json",
+    "src/shared matches dist/shared",
+    "src/background matches dist/background",
+    "src/content matches dist/content",
+    "src/options matches dist/options",
+    "src/popup matches dist/popup",
+    "All public files match dist",
+    "Chrome ZIP CRC integrity",
+    "Chrome ZIP and dist contain exactly the same files",
+    "Every Chrome ZIP byte matches dist",
+    "Manifest is at Chrome ZIP root",
+    "Installed manifest version",
+    "Only the static logo is exposed to github.com",
+    "No additional API permission",
+    "No added host permission",
+    "Packaged 16.png dimension",
+    "Packaged 16.ico dimension",
+    "Packaged 32.png dimension",
+    "Packaged 32.ico dimension",
+    "Packaged 48.png dimension",
+    "Packaged 48.ico dimension",
+    "Packaged 128.png dimension",
+    "Packaged 128.ico dimension",
+    "No QA adapter/test/generator code in install package"
   ],
-  "files": 28,
-  "sha256": "6f667976daa8ffd8155cf081a022bac80e4c2494f0b107fcb03445938ca259c0"
+  "chromeSha256": "9ab048bd8b2906556f964ddf548f74c06485368fcafe78140aeab51fde5a8cdb",
+  "preservedBackground": {
+    "src/background/store.js": {
+      "before": "a7c6fb91b321ef15223f086b3e285a674efb73af41f122a7dff3025b19e4c070",
+      "after": "a7c6fb91b321ef15223f086b3e285a674efb73af41f122a7dff3025b19e4c070"
+    },
+    "src/background/github.js": {
+      "before": "83fd49bbabdc487e5a87cfde7fcd6c1340ab3552d68182c2c393caebd763586e",
+      "after": "83fd49bbabdc487e5a87cfde7fcd6c1340ab3552d68182c2c393caebd763586e"
+    },
+    "src/background/service.js": {
+      "before": "93c55301e858ad9ddc4b9750bb5dedc96dd5f95303ec7a50111b96510d020e3a",
+      "after": "93c55301e858ad9ddc4b9750bb5dedc96dd5f95303ec7a50111b96510d020e3a"
+    },
+    "src/background/index.js": {
+      "before": "2ba520fb79923683ec3599d2a754d4657c9eab49c2f21307a6ccfc440d01f945",
+      "after": "2ba520fb79923683ec3599d2a754d4657c9eab49c2f21307a6ccfc440d01f945"
+    }
+  },
+  "sourceSvgPixelDifference": 0,
+  "notVerified": [
+    "Installed Chrome UI",
+    "Live GitHub page resource access",
+    "GitHub Pages deployment",
+    "Chrome Web Store dashboard"
+  ]
 }

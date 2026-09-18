@@ -1,0 +1,5 @@
+{
+  "scope": "Standard unpacked extension launch; no policy or security controls modified",
+  "loaded": false,
+  "observation": "No extension service worker registered in the six-second observation window. Native installation, toolbar UI and live APIs not certified."
+}

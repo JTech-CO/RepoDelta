@@ -1,8 +1,14 @@
 PASS: One header badge is injected
+PASS: Header badge logo decodes the new SVG
+PASS: Header badge logo has the correct displayed size
 PASS: Untracked visit makes zero API calls
 PASS: Opening panel does not create a checkpoint
 PASS: First explicit checkpoint saves the displayed SHA
 PASS: Seven file changes render with status and line counts
+PASS: Panel logo decodes the new SVG
+PASS: Panel logo has the correct displayed size
+PASS: Header badge after a state update decodes the new SVG
+PASS: Header badge after a state update has the correct displayed size
 PASS: Path filter matches previous filename of a rename
 PASS: Deleted file link is pinned to the saved checkpoint
 PASS: Commit tab shows chronological commit rows
@@ -28,10 +34,14 @@ PASS: Rate-limited view does not automatically retry
 PASS: Simulated repository navigation leaves one badge and no stale panel
 PASS: Navigating to an untracked repository makes no API call
 PASS: Missing header falls back to a single floating control
+PASS: Settings logo decodes the new SVG
+PASS: Settings logo has the correct displayed size
 PASS: Token input is cleared after saving
 PASS: Token is absent from simulated local storage
 PASS: Checkpoint manager renders saved repository entries
 PASS: UI export path excludes token and internal revision data
 PASS: Canceling delete-all leaves saved checkpoints intact
+PASS: Popup logo decodes the new SVG
+PASS: Popup logo has the correct displayed size
 PASS: No uncaught JavaScript errors during offline DOM regression
-{"passed": 36, "browser": "144.0.7559.96", "pageErrors": []}
+{"passed": 46, "browser": "144.0.7559.96", "pageErrors": []}

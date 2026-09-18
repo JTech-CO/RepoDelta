@@ -59,3 +59,7 @@ Do not blindly answer every data category with "not collected". The extension pr
 - Confirm the store-provided installation URL only after approval. This package intentionally does not invent one.
 
 References: [Developer program policies](https://developer.chrome.com/docs/webstore/program-policies) · [User data FAQ](https://developer.chrome.com/docs/webstore/program-policies/user-data-faq) · [MV3 remote code](https://developer.chrome.com/docs/extensions/develop/migrate/remote-hosted-code).
+
+## 1.0.4 branding assets
+
+Use the rebuilt Chrome ZIP and `public/icons/128.png`; refreshed screenshots are in `docs/screenshots`. These screenshots contain simulated repository data and must not be presented as live integration evidence. A dashboard-uploaded store icon or screenshot needs a separate update; modifying the repository alone does not change it.

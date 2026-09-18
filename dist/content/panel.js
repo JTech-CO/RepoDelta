@@ -80,7 +80,7 @@
     render() {
       if (!this.alive) return;
       this.dialog.lang = this.lang;
-      const title = e('div', {}, [e('div', { class: 'rd-brand', id: 'rd-title' }, [e('span', { class: 'rd-symbol', 'aria-hidden': 'true' }, ['Δ']), 'RepoDelta']), e('p', { id: 'rd-subtitle' }, [this.t('subtitle')])]);
+      const title = e('div', {}, [e('div', { class: 'rd-brand', id: 'rd-title' }, [R.logo('rd-logo', 28), 'RepoDelta']), e('p', { id: 'rd-subtitle' }, [this.t('subtitle')])]);
       const actions = e('div', { class: 'rd-actions' }, [
         R.button(this.lang === 'en' ? 'KR' : 'EN', () => this.changeLanguage(), 'quiet', { title: this.t('chooseLanguage'), 'aria-label': this.t('chooseLanguage'), disabled: this.busy }),
         R.button(this.t('settings'), () => this.call('OPEN_OPTIONS').catch(error => { this.error = error; this.render(); }), 'quiet', { disabled: this.busy }),

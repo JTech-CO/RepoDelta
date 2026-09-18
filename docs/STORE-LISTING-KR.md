@@ -59,3 +59,7 @@ GitHub 쓰기, 데이터 판매, 이용 분석, 개발자 운영 서버 연결�
 - 승인 후 실제 스토어 설치 URL을 확인해 README 등에 추가합니다. 이 패키지에는 가상의 주소를 넣지 않았습니다.
 
 참고: [개발자 정책](https://developer.chrome.com/docs/webstore/program-policies) · [사용자 데이터 FAQ](https://developer.chrome.com/docs/webstore/program-policies/user-data-faq) · [MV3 원격 코드](https://developer.chrome.com/docs/extensions/develop/migrate/remote-hosted-code).
+
+## 1.0.4 아이콘 자료
+
+새 Chrome ZIP과 `public/icons/128.png`를 사용합니다. 갱신한 스크린샷은 `docs/screenshots`에 있습니다. 스크린샷은 모의 저장소 데이터이며 실제 GitHub 연동 검증 화면으로 표시하면 안 됩니다. 웹스토어 관리 화면에 따로 올린 아이콘·소개 이미지는 저장소 수정만으로 바뀌지 않으므로 별도 갱신해야 합니다.

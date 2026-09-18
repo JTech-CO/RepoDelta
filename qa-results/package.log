@@ -1,581 +1,671 @@
 
-> repodelta@1.0.2 package
+> repodelta@1.0.4 package
 > npm run check && npm test && npm run build && node scripts/package.mjs
 
 
-> repodelta@1.0.2 check
+> repodelta@1.0.4 check
 > node scripts/check.mjs
 
-Syntax and JSON checks passed (17 JavaScript files).
+Syntax and JSON checks passed (18 JavaScript files).
 
-> repodelta@1.0.2 test
+> repodelta@1.0.4 test
 > node scripts/test.mjs
 
 TAP version 13
 # Subtest: requests use GET, omit cookies, pin API version, and never use remote hosts
 ok 1 - requests use GET, omit cookies, pin API version, and never use remote hosts
   ---
-  duration_ms: 25.822548
+  duration_ms: 32.065676
   type: 'test'
   ...
 # Subtest: authenticated token goes in API header, not URL
 ok 2 - authenticated token goes in API header, not URL
   ---
-  duration_ms: 1.153294
+  duration_ms: 1.632846
+  type: 'test'
+  ...
+# Subtest: receiver-sensitive WorkerGlobalScope-style fetch stays correctly bound
+ok 3 - receiver-sensitive WorkerGlobalScope-style fetch stays correctly bound
+  ---
+  duration_ms: 1.287307
+  type: 'test'
+  ...
+# Subtest: diagnostics use the same correctly bound fetch transport
+ok 4 - diagnostics use the same correctly bound fetch transport
+  ---
+  duration_ms: 2.880639
   type: 'test'
   ...
 # Subtest: fresh cache and simultaneous identical requests use one fetch
-ok 3 - fresh cache and simultaneous identical requests use one fetch
+ok 5 - fresh cache and simultaneous identical requests use one fetch
   ---
-  duration_ms: 11.949933
+  duration_ms: 14.167346
   type: 'test'
   ...
 # Subtest: force refresh sends ETag and handles 304
-ok 4 - force refresh sends ETag and handles 304
+ok 6 - force refresh sends ETag and handles 304
   ---
-  duration_ms: 1.913823
+  duration_ms: 1.265788
   type: 'test'
   ...
 # Subtest: cache expires after five minutes
-ok 5 - cache expires after five minutes
+ok 7 - cache expires after five minutes
   ---
-  duration_ms: 2.351975
+  duration_ms: 2.665271
   type: 'test'
   ...
 # Subtest: HTTP 401 maps to TOKEN_REJECTED without caching
-ok 6 - HTTP 401 maps to TOKEN_REJECTED without caching
+ok 8 - HTTP 401 maps to TOKEN_REJECTED without caching
   ---
-  duration_ms: 2.297543
+  duration_ms: 2.320266
   type: 'test'
   ...
 # Subtest: HTTP 403 maps to FORBIDDEN without caching
-ok 7 - HTTP 403 maps to FORBIDDEN without caching
+ok 9 - HTTP 403 maps to FORBIDDEN without caching
   ---
-  duration_ms: 1.436973
+  duration_ms: 1.789225
   type: 'test'
   ...
 # Subtest: HTTP 404 maps to NOT_FOUND without caching
-ok 8 - HTTP 404 maps to NOT_FOUND without caching
+ok 10 - HTTP 404 maps to NOT_FOUND without caching
   ---
-  duration_ms: 0.982936
+  duration_ms: 1.542856
   type: 'test'
   ...
 # Subtest: HTTP 409 maps to CONFLICT without caching
-ok 9 - HTTP 409 maps to CONFLICT without caching
+ok 11 - HTTP 409 maps to CONFLICT without caching
   ---
-  duration_ms: 0.937427
+  duration_ms: 1.356114
   type: 'test'
   ...
 # Subtest: HTTP 422 maps to UNPROCESSABLE without caching
-ok 10 - HTTP 422 maps to UNPROCESSABLE without caching
+ok 12 - HTTP 422 maps to UNPROCESSABLE without caching
   ---
-  duration_ms: 1.097269
+  duration_ms: 3.05364
   type: 'test'
   ...
 # Subtest: HTTP 500 maps to GITHUB_UNAVAILABLE without caching
-ok 11 - HTTP 500 maps to GITHUB_UNAVAILABLE without caching
+ok 13 - HTTP 500 maps to GITHUB_UNAVAILABLE without caching
   ---
-  duration_ms: 0.841752
+  duration_ms: 0.837395
   type: 'test'
   ...
 # Subtest: primary rate limit blocks subsequent requests until reset
-ok 12 - primary rate limit blocks subsequent requests until reset
+ok 14 - primary rate limit blocks subsequent requests until reset
   ---
-  duration_ms: 0.704304
+  duration_ms: 6.017383
   type: 'test'
   ...
 # Subtest: secondary rate limit respects Retry-After and does not loop
-ok 13 - secondary rate limit respects Retry-After and does not loop
+ok 15 - secondary rate limit respects Retry-After and does not loop
   ---
-  duration_ms: 1.157489
+  duration_ms: 0.754478
   type: 'test'
   ...
 # Subtest: 429 without headers creates a one-minute cooldown
-ok 14 - 429 without headers creates a one-minute cooldown
+ok 16 - 429 without headers creates a one-minute cooldown
   ---
-  duration_ms: 0.486576
+  duration_ms: 0.728577
   type: 'test'
   ...
 # Subtest: network errors retry once with compatibility headers and expose no token value
-ok 15 - network errors retry once with compatibility headers and expose no token value
+ok 17 - network errors retry once with compatibility headers and expose no token value
   ---
-  duration_ms: 4.166959
+  duration_ms: 0.790428
   type: 'test'
   ...
 # Subtest: compatibility retry removes version and ETag headers
-ok 16 - compatibility retry removes version and ETag headers
+ok 18 - compatibility retry removes version and ETag headers
   ---
-  duration_ms: 1.896046
+  duration_ms: 1.041018
   type: 'test'
   ...
 # Subtest: invalid JSON is rejected
-ok 17 - invalid JSON is rejected
+ok 19 - invalid JSON is rejected
   ---
-  duration_ms: 0.458333
+  duration_ms: 0.614148
   type: 'test'
   ...
 # Subtest: an auth change discards in-flight API data
-ok 18 - an auth change discards in-flight API data
+ok 20 - an auth change discards in-flight API data
   ---
-  duration_ms: 0.415398
+  duration_ms: 0.526896
   type: 'test'
   ...
 # Subtest: request path allowlist rejects user and arbitrary host endpoints
-ok 19 - request path allowlist rejects user and arbitrary host endpoints
+ok 21 - request path allowlist rejects user and arbitrary host endpoints
   ---
-  duration_ms: 0.247994
+  duration_ms: 0.556414
   type: 'test'
   ...
 # Subtest: followed redirects must still end on an approved GitHub API path
-ok 20 - followed redirects must still end on an approved GitHub API path
+ok 22 - followed redirects must still end on an approved GitHub API path
   ---
-  duration_ms: 3.040946
+  duration_ms: 0.663309
   type: 'test'
   ...
 # Subtest: canonical GitHub repository redirects are accepted
-ok 21 - canonical GitHub repository redirects are accepted
+ok 23 - canonical GitHub repository redirects are accepted
   ---
-  duration_ms: 0.6812
+  duration_ms: 0.806185
   type: 'test'
   ...
 # Subtest: request deduplication survives a failed request without poisoning retries
-ok 22 - request deduplication survives a failed request without poisoning retries
+ok 24 - request deduplication survives a failed request without poisoning retries
   ---
-  duration_ms: 0.610332
+  duration_ms: 0.824549
   type: 'test'
   ...
 # Subtest: diagnostics use only the fixed GitHub rate-limit endpoint and never expose the token
-ok 23 - diagnostics use only the fixed GitHub rate-limit endpoint and never expose the token
+ok 25 - diagnostics use only the fixed GitHub rate-limit endpoint and never expose the token
   ---
-  duration_ms: 1.821142
+  duration_ms: 1.015959
+  type: 'test'
+  ...
+# Subtest: brand: all generated raster hashes and dimensions match the canonical SVG
+ok 26 - brand: all generated raster hashes and dimensions match the canonical SVG
+  ---
+  duration_ms: 9.695233
+  type: 'test'
+  ...
+# Subtest: brand: a changed SVG blocks builds until derived images are regenerated
+ok 27 - brand: a changed SVG blocks builds until derived images are regenerated
+  ---
+  duration_ms: 29.601225
+  type: 'test'
+  ...
+# Subtest: brand: a changed raster blocks builds even when the source SVG is unchanged
+ok 28 - brand: a changed raster blocks builds even when the source SVG is unchanged
+  ---
+  duration_ms: 53.663177
+  type: 'test'
+  ...
+# Subtest: brand: native manifest icons stay PNG and only logo.svg is web-accessible to GitHub
+ok 29 - brand: native manifest icons stay PNG and only logo.svg is web-accessible to GitHub
+  ---
+  duration_ms: 1.395138
+  type: 'test'
+  ...
+# Subtest: brand: shared rendering uses a packaged image URL with an empty decorative alt
+ok 30 - brand: shared rendering uses a packaged image URL with an empty decorative alt
+  ---
+  duration_ms: 3.862511
+  type: 'test'
+  ...
+# Subtest: brand: src/content/panel.js uses the shared logo, not a font-based delta
+ok 31 - brand: src/content/panel.js uses the shared logo, not a font-based delta
+  ---
+  duration_ms: 0.794276
+  type: 'test'
+  ...
+# Subtest: brand: src/options/index.js uses the shared logo, not a font-based delta
+ok 32 - brand: src/options/index.js uses the shared logo, not a font-based delta
+  ---
+  duration_ms: 3.156701
+  type: 'test'
+  ...
+# Subtest: brand: src/popup/index.js uses the shared logo, not a font-based delta
+ok 33 - brand: src/popup/index.js uses the shared logo, not a font-based delta
+  ---
+  duration_ms: 0.469124
+  type: 'test'
+  ...
+# Subtest: brand: header badge preserves its image when the state label changes
+ok 34 - brand: header badge preserves its image when the state label changes
+  ---
+  duration_ms: 1.606795
+  type: 'test'
+  ...
+# Subtest: brand: public/privacy-policy.html has a real logo and a versioned PNG favicon
+ok 35 - brand: public/privacy-policy.html has a real logo and a versioned PNG favicon
+  ---
+  duration_ms: 0.920583
+  type: 'test'
+  ...
+# Subtest: brand: public/help.html has a real logo and a versioned PNG favicon
+ok 36 - brand: public/help.html has a real logo and a versioned PNG favicon
+  ---
+  duration_ms: 0.708787
+  type: 'test'
+  ...
+# Subtest: brand: options and popup documents both declare the new favicon
+ok 37 - brand: options and popup documents both declare the new favicon
+  ---
+  duration_ms: 0.762522
+  type: 'test'
+  ...
+# Subtest: brand: the uploaded vector geometry is retained exactly, apart from scaling metadata
+ok 38 - brand: the uploaded vector geometry is retained exactly, apart from scaling metadata
+  ---
+  duration_ms: 2.946701
   type: 'test'
   ...
 # Subtest: parse repository: https://github.com/octo/demo
-ok 24 - parse repository: https://github.com/octo/demo
+ok 39 - parse repository: https://github.com/octo/demo
   ---
-  duration_ms: 2.14341
+  duration_ms: 2.357763
   type: 'test'
   ...
 # Subtest: parse repository: https://github.com/octo/demo/tree/feature/foo
-ok 25 - parse repository: https://github.com/octo/demo/tree/feature/foo
+ok 40 - parse repository: https://github.com/octo/demo/tree/feature/foo
   ---
-  duration_ms: 0.331641
+  duration_ms: 0.391744
   type: 'test'
   ...
 # Subtest: parse repository: https://github.com/octo/demo/issues/42
-ok 26 - parse repository: https://github.com/octo/demo/issues/42
+ok 41 - parse repository: https://github.com/octo/demo/issues/42
   ---
-  duration_ms: 0.192981
+  duration_ms: 0.152615
   type: 'test'
   ...
 # Subtest: parse repository: https://github.com/octo/demo.git
-ok 27 - parse repository: https://github.com/octo/demo.git
+ok 42 - parse repository: https://github.com/octo/demo.git
   ---
-  duration_ms: 0.145239
+  duration_ms: 0.135625
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com/settings/tokens
-ok 28 - reject non-repository URL: https://github.com/settings/tokens
+ok 43 - reject non-repository URL: https://github.com/settings/tokens
   ---
-  duration_ms: 0.190238
+  duration_ms: 0.176327
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com/orgs/octo/repositories
-ok 29 - reject non-repository URL: https://github.com/orgs/octo/repositories
+ok 44 - reject non-repository URL: https://github.com/orgs/octo/repositories
   ---
-  duration_ms: 0.132691
+  duration_ms: 0.170451
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com/search?q=demo
-ok 30 - reject non-repository URL: https://github.com/search?q=demo
+ok 45 - reject non-repository URL: https://github.com/search?q=demo
   ---
-  duration_ms: 0.175686
+  duration_ms: 0.104356
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com/octo
-ok 31 - reject non-repository URL: https://github.com/octo
+ok 46 - reject non-repository URL: https://github.com/octo
   ---
-  duration_ms: 0.125479
+  duration_ms: 0.101303
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://evil.invalid/octo/demo
-ok 32 - reject non-repository URL: https://evil.invalid/octo/demo
+ok 47 - reject non-repository URL: https://evil.invalid/octo/demo
   ---
-  duration_ms: 0.36421
+  duration_ms: 0.30509
   type: 'test'
   ...
 # Subtest: reject non-repository URL: http://github.com/octo/demo
-ok 33 - reject non-repository URL: http://github.com/octo/demo
+ok 48 - reject non-repository URL: http://github.com/octo/demo
   ---
-  duration_ms: 0.458483
+  duration_ms: 0.444181
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com/octo/x%2Fy
-ok 34 - reject non-repository URL: https://github.com/octo/x%2Fy
+ok 49 - reject non-repository URL: https://github.com/octo/x%2Fy
   ---
-  duration_ms: 0.301816
+  duration_ms: 0.318364
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://github.com:8443/octo/demo
-ok 35 - reject non-repository URL: https://github.com:8443/octo/demo
+ok 50 - reject non-repository URL: https://github.com:8443/octo/demo
   ---
-  duration_ms: 0.107583
+  duration_ms: 0.115564
   type: 'test'
   ...
 # Subtest: reject non-repository URL: https://evil@github.com/octo/demo
-ok 36 - reject non-repository URL: https://evil@github.com/octo/demo
+ok 51 - reject non-repository URL: https://evil@github.com/octo/demo
   ---
-  duration_ms: 0.136877
+  duration_ms: 0.12619
   type: 'test'
   ...
 # Subtest: repository identity is case-insensitive
-ok 37 - repository identity is case-insensitive
+ok 52 - repository identity is case-insensitive
   ---
-  duration_ms: 0.173822
+  duration_ms: 0.176657
   type: 'test'
   ...
 # Subtest: malformed references do not become request paths
-ok 38 - malformed references do not become request paths
+ok 53 - malformed references do not become request paths
   ---
-  duration_ms: 0.379223
+  duration_ms: 0.474354
   type: 'test'
   ...
 # Subtest: compare and file URLs pin full SHAs and encode special path characters
-ok 39 - compare and file URLs pin full SHAs and encode special path characters
+ok 54 - compare and file URLs pin full SHAs and encode special path characters
   ---
-  duration_ms: 0.307214
+  duration_ms: 0.383809
   type: 'test'
   ...
 # Subtest: metadata normalization strips unrelated data
-ok 40 - metadata normalization strips unrelated data
+ok 55 - metadata normalization strips unrelated data
   ---
-  duration_ms: 0.271089
+  duration_ms: 0.242579
   type: 'test'
   ...
 # Subtest: commit normalization removes email and body
-ok 41 - commit normalization removes email and body
+ok 56 - commit normalization removes email and body
   ---
-  duration_ms: 0.3438
+  duration_ms: 0.379381
   type: 'test'
   ...
 # Subtest: comparison normalization strips source patches and untrusted URLs
-ok 42 - comparison normalization strips source patches and untrusted URLs
+ok 57 - comparison normalization strips source patches and untrusted URLs
   ---
-  duration_ms: 0.396369
+  duration_ms: 0.623614
   type: 'test'
   ...
 # Subtest: 300 returned files is conservatively labeled possibly incomplete
-ok 43 - 300 returned files is conservatively labeled possibly incomplete
+ok 58 - 300 returned files is conservatively labeled possibly incomplete
   ---
-  duration_ms: 1.442641
+  duration_ms: 1.47618
   type: 'test'
   ...
 # Subtest: classify: first visit
-ok 44 - classify: first visit
+ok 59 - classify: first visit
   ---
-  duration_ms: 0.141714
+  duration_ms: 0.195482
   type: 'test'
   ...
 # Subtest: classify: empty
-ok 45 - classify: empty
+ok 60 - classify: empty
   ---
-  duration_ms: 0.075534
+  duration_ms: 0.107913
   type: 'test'
   ...
 # Subtest: classify: same SHA
-ok 46 - classify: same SHA
+ok 61 - classify: same SHA
   ---
-  duration_ms: 0.074273
+  duration_ms: 0.055801
   type: 'test'
   ...
 # Subtest: classify: new repository ID
-ok 47 - classify: new repository ID
+ok 62 - classify: new repository ID
   ---
-  duration_ms: 0.084738
+  duration_ms: 0.04517
   type: 'test'
   ...
 # Subtest: classify: default branch changed
-ok 48 - classify: default branch changed
+ok 63 - classify: default branch changed
   ---
-  duration_ms: 0.107663
+  duration_ms: 0.043746
   type: 'test'
   ...
 # Subtest: classify: linear progression
-ok 49 - classify: linear progression
+ok 64 - classify: linear progression
   ---
-  duration_ms: 0.071918
+  duration_ms: 0.042963
   type: 'test'
   ...
 # Subtest: classify: diverged history
-ok 50 - classify: diverged history
+ok 65 - classify: diverged history
   ---
-  duration_ms: 0.068413
+  duration_ms: 0.043984
   type: 'test'
   ...
 # Subtest: classify: rewound history
-ok 51 - classify: rewound history
+ok 66 - classify: rewound history
   ---
-  duration_ms: 0.06646
+  duration_ms: 0.041422
   type: 'test'
   ...
 # Subtest: classify: missing compare
-ok 52 - classify: missing compare
+ok 67 - classify: missing compare
   ---
-  duration_ms: 0.067011
+  duration_ms: 0.044157
   type: 'test'
   ...
 # Subtest: classify: unexpected merge base
-ok 53 - classify: unexpected merge base
+ok 68 - classify: unexpected merge base
   ---
-  duration_ms: 0.136687
+  duration_ms: 0.168747
   type: 'test'
   ...
 # Subtest: file filters match renamed old paths and status
-ok 54 - file filters match renamed old paths and status
+ok 69 - file filters match renamed old paths and status
   ---
-  duration_ms: 0.222366
+  duration_ms: 0.213799
   type: 'test'
   ...
 # Subtest: backup export is a whitelist without tokens or revision IDs
-ok 55 - backup export is a whitelist without tokens or revision IDs
+ok 70 - backup export is a whitelist without tokens or revision IDs
   ---
-  duration_ms: 0.798717
+  duration_ms: 0.838694
   type: 'test'
   ...
 # Subtest: backup import rejects malformed schema, SHA and excessive size
-ok 56 - backup import rejects malformed schema, SHA and excessive size
+ok 71 - backup import rejects malformed schema, SHA and excessive size
   ---
-  duration_ms: 1.710496
+  duration_ms: 2.058366
   type: 'test'
   ...
 # Subtest: backup parser ignores unexpected fields and validates every entry
-ok 57 - backup parser ignores unexpected fields and validates every entry
+ok 72 - backup parser ignores unexpected fields and validates every entry
   ---
-  duration_ms: 0.217358
+  duration_ms: 0.310054
   type: 'test'
   ...
 # Subtest: settings only accept supported language and booleans
-ok 58 - settings only accept supported language and booleans
+ok 73 - settings only accept supported language and booleans
   ---
-  duration_ms: 0.262456
+  duration_ms: 0.214946
   type: 'test'
   ...
 # Subtest: EN/KR string and error dictionaries have identical keys
-ok 59 - EN/KR string and error dictionaries have identical keys
+ok 74 - EN/KR string and error dictionaries have identical keys
   ---
-  duration_ms: 0.262837
+  duration_ms: 0.265809
   type: 'test'
   ...
 # Subtest: translated placeholder sets match
-ok 60 - translated placeholder sets match
+ok 75 - translated placeholder sets match
   ---
-  duration_ms: 0.672697
+  duration_ms: 0.747619
   type: 'test'
   ...
 # Subtest: public errors do not leak arbitrary exception messages
-ok 61 - public errors do not leak arbitrary exception messages
+ok 76 - public errors do not leak arbitrary exception messages
   ---
-  duration_ms: 0.208094
+  duration_ms: 0.232483
   type: 'test'
   ...
 # Subtest: local and session stores restrict access to trusted contexts
-ok 62 - local and session stores restrict access to trusted contexts
+ok 77 - local and session stores restrict access to trusted contexts
   ---
-  duration_ms: 4.712503
+  duration_ms: 3.681018
   type: 'test'
   ...
 # Subtest: BOOT on untracked repository makes zero API requests
-ok 63 - BOOT on untracked repository makes zero API requests
+ok 78 - BOOT on untracked repository makes zero API requests
   ---
-  duration_ms: 0.642421
+  duration_ms: 0.455695
   type: 'test'
   ...
 # Subtest: opening or checking does not create a checkpoint
-ok 64 - opening or checking does not create a checkpoint
+ok 79 - opening or checking does not create a checkpoint
   ---
-  duration_ms: 1.44916
+  duration_ms: 1.015168
   type: 'test'
   ...
 # Subtest: initial mark stores exactly the displayed revision with no fresh HEAD call
-ok 65 - initial mark stores exactly the displayed revision with no fresh HEAD call
+ok 80 - initial mark stores exactly the displayed revision with no fresh HEAD call
   ---
-  duration_ms: 1.830387
+  duration_ms: 1.256716
   type: 'test'
   ...
 # Subtest: checking an ahead repository preserves its old baseline
-ok 66 - checking an ahead repository preserves its old baseline
+ok 81 - checking an ahead repository preserves its old baseline
   ---
-  duration_ms: 0.91906
+  duration_ms: 0.584675
   type: 'test'
   ...
 # Subtest: mark pins viewed HEAD even if upstream advances during review
-ok 67 - mark pins viewed HEAD even if upstream advances during review
+ok 82 - mark pins viewed HEAD even if upstream advances during review
   ---
-  duration_ms: 2.014375
+  duration_ms: 1.307854
   type: 'test'
   ...
 # Subtest: older tab cannot overwrite a newer checkpoint
-ok 68 - older tab cannot overwrite a newer checkpoint
+ok 83 - older tab cannot overwrite a newer checkpoint
   ---
-  duration_ms: 2.419838
+  duration_ms: 1.525383
   type: 'test'
   ...
 # Subtest: concurrent marks produce one winner, one stale error
-ok 69 - concurrent marks produce one winner, one stale error
+ok 84 - concurrent marks produce one winner, one stale error
   ---
-  duration_ms: 1.718057
+  duration_ms: 2.207222
   type: 'test'
   ...
 # Subtest: another checkpoint saved during network request invalidates the check
-ok 70 - another checkpoint saved during network request invalidates the check
+ok 85 - another checkpoint saved during network request invalidates the check
   ---
-  duration_ms: 1.146402
+  duration_ms: 0.702296
   type: 'test'
   ...
 # Subtest: empty repository cannot be marked
-ok 71 - empty repository cannot be marked
+ok 86 - empty repository cannot be marked
   ---
-  duration_ms: 0.970487
+  duration_ms: 0.59786
   type: 'test'
   ...
 # Subtest: branch switch requires explicit reset confirmation
-ok 72 - branch switch requires explicit reset confirmation
+ok 87 - branch switch requires explicit reset confirmation
   ---
-  duration_ms: 1.239954
+  duration_ms: 0.830364
   type: 'test'
   ...
 # Subtest: repository replacement requires explicit reset confirmation
-ok 73 - repository replacement requires explicit reset confirmation
+ok 88 - repository replacement requires explicit reset confirmation
   ---
-  duration_ms: 1.03208
+  duration_ms: 0.540405
   type: 'test'
   ...
 # Subtest: rewritten history requires explicit reset confirmation
-ok 74 - rewritten history requires explicit reset confirmation
+ok 89 - rewritten history requires explicit reset confirmation
   ---
-  duration_ms: 0.981413
+  duration_ms: 0.510788
   type: 'test'
   ...
 # Subtest: unavailable comparison requires explicit reset confirmation
-ok 75 - unavailable comparison requires explicit reset confirmation
+ok 90 - unavailable comparison requires explicit reset confirmation
   ---
-  duration_ms: 1.161075
+  duration_ms: 0.636451
   type: 'test'
   ...
 # Subtest: rate limit is not mislabeled as rewritten history
-ok 76 - rate limit is not mislabeled as rewritten history
+ok 91 - rate limit is not mislabeled as rewritten history
   ---
-  duration_ms: 0.486516
+  duration_ms: 0.320886
   type: 'test'
   ...
 # Subtest: default branch with slash is query-encoded
-ok 77 - default branch with slash is query-encoded
+ok 92 - default branch with slash is query-encoded
   ---
-  duration_ms: 0.517452
+  duration_ms: 0.265587
   type: 'test'
   ...
 # Subtest: more pages retain the first-page file list and pinned comparison
-ok 78 - more pages retain the first-page file list and pinned comparison
+ok 93 - more pages retain the first-page file list and pinned comparison
   ---
-  duration_ms: 3.026425
+  duration_ms: 1.997816
   type: 'test'
   ...
 # Subtest: loading stops at 500 commits
-ok 79 - loading stops at 500 commits
+ok 94 - loading stops at 500 commits
   ---
-  duration_ms: 2.068126
+  duration_ms: 1.173914
   type: 'test'
   ...
 # Subtest: cross-repository snapshot replay is denied
-ok 80 - cross-repository snapshot replay is denied
+ok 95 - cross-repository snapshot replay is denied
   ---
-  duration_ms: 0.431042
+  duration_ms: 0.274006
   type: 'test'
   ...
 # Subtest: snapshot expires after 30 minutes
-ok 81 - snapshot expires after 30 minutes
+ok 96 - snapshot expires after 30 minutes
   ---
-  duration_ms: 0.424361
+  duration_ms: 0.304667
   type: 'test'
   ...
 # Subtest: tokens exist only in session and never in backup or options response
-ok 82 - tokens exist only in session and never in backup or options response
+ok 97 - tokens exist only in session and never in backup or options response
   ---
-  duration_ms: 0.624885
+  duration_ms: 0.409123
   type: 'test'
   ...
 # Subtest: changing authentication invalidates old snapshots and preserves checkpoints
-ok 83 - changing authentication invalidates old snapshots and preserves checkpoints
+ok 98 - changing authentication invalidates old snapshots and preserves checkpoints
   ---
-  duration_ms: 0.622561
+  duration_ms: 0.626441
   type: 'test'
   ...
 # Subtest: backup merge skips existing and duplicate entries
-ok 84 - backup merge skips existing and duplicate entries
+ok 99 - backup merge skips existing and duplicate entries
   ---
-  duration_ms: 1.181706
+  duration_ms: 3.270792
   type: 'test'
   ...
 # Subtest: malformed backup is atomic and leaves data unchanged
-ok 85 - malformed backup is atomic and leaves data unchanged
+ok 100 - malformed backup is atomic and leaves data unchanged
   ---
-  duration_ms: 0.411412
+  duration_ms: 0.433712
   type: 'test'
   ...
 # Subtest: checkpoint limit rejects a whole import without partial writes
-ok 86 - checkpoint limit rejects a whole import without partial writes
+ok 101 - checkpoint limit rejects a whole import without partial writes
   ---
-  duration_ms: 33.854123
+  duration_ms: 12.629627
   type: 'test'
   ...
 # Subtest: untrack requires matching revision and never writes GitHub
-ok 87 - untrack requires matching revision and never writes GitHub
+ok 102 - untrack requires matching revision and never writes GitHub
   ---
-  duration_ms: 0.401707
+  duration_ms: 0.371855
   type: 'test'
   ...
 # Subtest: serialized local writes preserve concurrent unrelated repositories
-ok 88 - serialized local writes preserve concurrent unrelated repositories
+ok 103 - serialized local writes preserve concurrent unrelated repositories
   ---
-  duration_ms: 3.095419
+  duration_ms: 3.291436
   type: 'test'
   ...
 # Subtest: content scripts cannot read options, tokens, or export all checkpoints
-ok 89 - content scripts cannot read options, tokens, or export all checkpoints
+ok 104 - content scripts cannot read options, tokens, or export all checkpoints
   ---
-  duration_ms: 0.276318
+  duration_ms: 0.280574
   type: 'test'
   ...
 # Subtest: content scripts are scoped to their sender repository
-ok 90 - content scripts are scoped to their sender repository
+ok 105 - content scripts are scoped to their sender repository
   ---
-  duration_ms: 0.252431
+  duration_ms: 0.197118
   type: 'test'
   ...
 # Subtest: messages from another extension or subframes are denied
-ok 91 - messages from another extension or subframes are denied
+ok 106 - messages from another extension or subframes are denied
   ---
-  duration_ms: 0.209637
+  duration_ms: 0.212778
   type: 'test'
   ...
 # Subtest: owned settings page can export
-ok 92 - owned settings page can export
+ok 107 - owned settings page can export
   ---
-  duration_ms: 0.084207
+  duration_ms: 0.14859
   type: 'test'
   ...
-1..92
-# tests 92
+1..107
+# tests 107
 # suites 0
-# pass 92
+# pass 107
 # fail 0
 # cancelled 0
 # skipped 0
 # todo 0
-# duration_ms 156.928542
+# duration_ms 261.514479
 
-> repodelta@1.0.2 build
+> repodelta@1.0.4 build
 > node scripts/build.mjs
 
-Built RepoDelta 1.0.2 into dist/. No npm dependencies or remote scripts.
-Packaged releases/RepoDelta-v1.0.2-chrome.zip (manifest.json is at the ZIP root).
+Built RepoDelta 1.0.4 into dist/. No npm dependencies or remote scripts.
+Packaged releases/RepoDelta-v1.0.4-chrome.zip (manifest.json is at the ZIP root).

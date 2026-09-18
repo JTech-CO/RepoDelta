@@ -1,0 +1,50 @@
+{
+  "repository": "JTech-CO/RepoDelta",
+  "commit": "5ead41a0f8a3f5bebb4ed98aefb1b002dd1b6b88",
+  "sourceSvgBlob": "f6884deac4982f6f24b1c744367ea44cff4eca60",
+  "baselineTrees": [
+    {
+      "directory": "src",
+      "expected": "c1cb06ca55cb89862bed49bf0126f210e3a09d35",
+      "actual": "c1cb06ca55cb89862bed49bf0126f210e3a09d35",
+      "equal": true
+    },
+    {
+      "directory": "dist",
+      "expected": "c27269b9c092ee5a4eb6377f2c8db28974d04ff4",
+      "actual": "c27269b9c092ee5a4eb6377f2c8db28974d04ff4",
+      "equal": true
+    },
+    {
+      "directory": "scripts",
+      "expected": "41f7793c485cbd720128c3a8fe392f3d75a51bdd",
+      "actual": "41f7793c485cbd720128c3a8fe392f3d75a51bdd",
+      "equal": true
+    },
+    {
+      "directory": "docs",
+      "expected": "948d8008af53af78945e68f02ae28d1c17eb6bb9",
+      "actual": "948d8008af53af78945e68f02ae28d1c17eb6bb9",
+      "equal": true
+    },
+    {
+      "directory": "tests",
+      "expected": "3554fe0c940c513f657a8ed243d08ade86110410",
+      "actual": "3554fe0c940c513f657a8ed243d08ade86110410",
+      "equal": true
+    },
+    {
+      "directory": "qa",
+      "expected": "481036282ebb5c908a7fbebf081f5ac06458f9a6",
+      "actual": "481036282ebb5c908a7fbebf081f5ac06458f9a6",
+      "equal": true
+    },
+    {
+      "directory": "releases",
+      "expected": "2a6b0ff0af4a9f4ded44759297dd851ea4ab547d",
+      "actual": "2a6b0ff0af4a9f4ded44759297dd851ea4ab547d",
+      "equal": true
+    }
+  ],
+  "note": "Existing conversation package verified against immutable Git tree hashes. Artwork obtained through GitHub connector; only SVG viewBox metadata added."
+}

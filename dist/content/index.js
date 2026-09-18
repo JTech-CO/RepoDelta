@@ -27,7 +27,7 @@
   }
   function paint() {
     if (!button) return;
-    const l = label(); button.textContent = l.text; button.title = l.title; button.dataset.tone = l.tone;
+    const l = label(); button.querySelector('.rd-badge-label').textContent = l.text; button.title = l.title; button.dataset.tone = l.tone;
     button.setAttribute('aria-label', `RepoDelta: ${l.title}`); button.setAttribute('aria-expanded', String(Boolean(panel?.alive)));
   }
   function removeButton() { host?.remove(); host = null; button = null; }
@@ -44,8 +44,8 @@
     const shadowHost = R.el('span');
     host.append(shadowHost);
     const root = shadowHost.attachShadow({ mode: 'open' });
-    root.append(R.el('style', {}, [`:host{display:inline-flex;align-items:center;vertical-align:middle;${container ? 'margin-inline-start:6px' : 'position:fixed;right:20px;bottom:20px;z-index:9999'}}button{font:600 12px/20px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border:1px solid var(--button-default-borderColor,var(--borderColor-default,#d1d9e0));border-radius:6px;padding:3px 10px;min-height:28px;white-space:nowrap;color:var(--fgColor-default,#1f2328);background:var(--button-default-bgColor-rest,var(--bgColor-muted,#f6f8fa));cursor:pointer}button:hover{filter:brightness(.96)}button:focus-visible{outline:2px solid var(--fgColor-accent,#0969da);outline-offset:3px}button[data-tone=new]{color:var(--fgColor-success,#1a7f37)}button[data-tone=warning]{color:var(--fgColor-attention,#9a6700)}`]));
-    button = R.el('button', { type: 'button', 'aria-haspopup': 'dialog', onClick: openPanel }); root.append(button);
+    root.append(R.el('style', {}, [`:host{display:inline-flex;align-items:center;vertical-align:middle;${container ? 'margin-inline-start:6px' : 'position:fixed;right:20px;bottom:20px;z-index:9999'}}button{display:inline-flex;align-items:center;gap:6px;font:600 12px/20px -apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;border:1px solid var(--button-default-borderColor,var(--borderColor-default,#d1d9e0));border-radius:6px;padding:3px 10px;min-height:28px;white-space:nowrap;color:var(--fgColor-default,#1f2328);background:var(--button-default-bgColor-rest,var(--bgColor-muted,#f6f8fa));cursor:pointer}.rd-badge-logo{display:block;flex:0 0 16px;width:16px;height:16px;object-fit:contain}button:hover{filter:brightness(.96)}button:focus-visible{outline:2px solid var(--fgColor-accent,#0969da);outline-offset:3px}button[data-tone=new]{color:var(--fgColor-success,#1a7f37)}button[data-tone=warning]{color:var(--fgColor-attention,#9a6700)}`]));
+    button = R.el('button', { type: 'button', 'aria-haspopup': 'dialog', onClick: openPanel }, [R.logo('rd-badge-logo', 16), R.el('span', { class: 'rd-badge-label' })]); root.append(button);
     (container || document.body).append(host); paint();
   }
   function openPanel() {
