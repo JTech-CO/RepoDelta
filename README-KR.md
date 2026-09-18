@@ -79,7 +79,7 @@ tests/         Node 회귀 테스트와 선택적 브라우저 테스트 실행�
 
 ## 문서
 
-[아키텍처](docs/ARCHITECTURE-KR.md) · [QA 및 미완료 검증](docs/QA-KR.md) · [스토어 소개문·배포 체크리스트](docs/STORE-LISTING-KR.md) · [변경 내역](CHANGELOG-KR.md) · [개인정보 처리방침](public/privacy-policy.html) · [사용 안내](public/help.html)
+[아키텍처](docs/ARCHITECTURE-KR.md) · [QA 및 미완료 검증](docs/QA-KR.md) · [스토어 소개문·배포 체크리스트](docs/STORE-LISTING-KR.md) · [변경 내역](CHANGELOG-KR.md) · [개인정보 처리방침](<https://jtech-co.github.io/RepoDelta/public/privacy-policy.html>) · [사용 안내](public/help.html)
 
 이 패키지는 스토어에 자동 배포하지 않습니다. 제출 전 `public/privacy-policy.html`을 실제 공개 URL에 호스팅해야 합니다. GitHub 저장소나 스토어 주소도 자동 생성하지 않습니다.
 
