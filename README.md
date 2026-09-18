@@ -79,7 +79,7 @@ For interactive fixture testing, run `npm run serve:qa` and open `http://127.0.0
 
 ## Documentation
 
-[Architecture](docs/ARCHITECTURE.md) · [QA and remaining checks](docs/QA.md) · [Store listing and release checklist](docs/STORE-LISTING.md) · [Changelog](CHANGELOG.md) · [Privacy policy](public/privacy-policy.html) · [User guide](public/help.html)
+[Architecture](docs/ARCHITECTURE.md) · [QA and remaining checks](docs/QA.md) · [Store listing and release checklist](docs/STORE-LISTING.md) · [Changelog](CHANGELOG.md) · [Privacy policy](<https://jtech-co.github.io/RepoDelta/public/privacy-policy.html>) · [User guide](public/help.html)
 
 The extension is not published by this package. Host `public/privacy-policy.html` at a real public URL before submitting to Chrome Web Store. No store URL or GitHub repository is created automatically.
 
