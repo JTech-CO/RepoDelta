@@ -1,0 +1,18 @@
+{
+  "artifact": "RepoDelta-v1.0.2-chrome.zip",
+  "checksPassed": 10,
+  "checks": [
+    "Manifest V3 version 1.0.2",
+    "Only storage permission declared",
+    "Only GitHub website and API host permissions",
+    "No custom extension CSP override; MV3 default CSP applies",
+    "Installation ZIP exactly matches dist",
+    "Installation bytes match every dist file",
+    "No QA fixtures, tests, docs, or build scripts in installation package",
+    "manifest.json is at installation ZIP root",
+    "GitHub API diagnostics and compatibility transport are packaged",
+    "Installation ZIP CRC/integrity"
+  ],
+  "files": 28,
+  "sha256": "6f667976daa8ffd8155cf081a022bac80e4c2494f0b107fcb03445938ca259c0"
+}

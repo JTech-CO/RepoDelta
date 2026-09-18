@@ -1,0 +1,10 @@
+import { cp, rm, mkdir, readFile, access } from 'node:fs/promises';
+import { resolve, join } from 'node:path';
+const root = resolve(import.meta.dirname, '..'), dist = join(root, 'dist');
+await rm(dist, { recursive: true, force: true }); await mkdir(dist, { recursive: true });
+await cp(join(root,'public'), dist, { recursive: true });
+await cp(join(root,'LICENSE'), join(dist,'LICENSE'));
+for (const dir of ['shared','background','content','options','popup']) await cp(join(root,'src',dir), join(dist,dir), { recursive: true });
+const m = JSON.parse(await readFile(join(dist,'manifest.json'),'utf8'));
+for (const path of [m.background.service_worker, m.action.default_popup, m.options_ui.page, ...m.content_scripts.flatMap(s => s.js), ...Object.values(m.icons)]) await access(join(dist,path));
+console.log(`Built RepoDelta ${m.version} into dist/. No npm dependencies or remote scripts.`);

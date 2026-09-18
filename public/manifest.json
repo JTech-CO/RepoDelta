@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "RepoDelta",
+  "version": "1.0.3",
+  "description": "__MSG_extensionDescription__",
+  "default_locale": "en",
+  "minimum_chrome_version": "114",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://github.com/*",
+    "https://api.github.com/*"
+  ],
+  "background": {
+    "service_worker": "background/index.js"
+  },
+  "action": {
+    "default_title": "RepoDelta",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://github.com/*"
+      ],
+      "js": [
+        "shared/core.js",
+        "shared/i18n.js",
+        "shared/ui.js",
+        "content/styles.js",
+        "content/panel.js",
+        "content/index.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
